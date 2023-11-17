@@ -16,18 +16,22 @@
         <div class="mt-4">
             <h4>Intéressé par ce bien ?</h4>
 
-            <form action="" method="post" class="vstack gap-3">
+            @include('shared.flash')
+
+            <form action="{{ route('property.contact', $property) }}" method="post" class="vstack gap-3">
                 @csrf
                 <div class="row">
                     @include('shared.input', [
                         'class' => 'col',
                         'name' => 'firstname',
                         'label' => 'Prénom',
+                        'value' => 'John',
                     ])
                     @include('shared.input', [
                         'class' => 'col',
                         'name' => 'lastname',
                         'label' => 'Nom',
+                        'value' => 'Doe',
                     ])
                 </div>
                 <div class="row">
@@ -35,12 +39,14 @@
                         'class' => 'col',
                         'name' => 'phone',
                         'label' => 'Téléphone',
+                        'value' => '06 00 00 00 00',
                     ])
                     @include('shared.input', [
                         'type' => 'email',
                         'class' => 'col',
                         'name' => 'email',
                         'label' => 'Email',
+                        'value' => 'john@doepublic.fr',
                     ])
                 </div>
                 @include('shared.input', [
@@ -48,6 +54,7 @@
                     'class' => 'col',
                     'name' => 'message',
                     'label' => 'Votre message',
+                    'value' => 'Mon petit message',
                 ])
                 <div>
                     <button class="btn btn-primary">Nous contacter</button>
